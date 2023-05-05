@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-
+import NavBar from "../component/navbar";
 import "./Home.css";
 import logo from "./logo.svg";
+
 
 export function Home() {
 	const [message, setMessage] = useState("Loading...");
@@ -25,6 +26,7 @@ export function Home() {
 
 	return (
 		<main role="main">
+			<NavBar/>			
 			<div>
 				<img
 					className="logo"
