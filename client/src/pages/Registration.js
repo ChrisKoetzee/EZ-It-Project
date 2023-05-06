@@ -2,17 +2,17 @@ import React from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 
-const Registraction = () => {
+const Registration = () => {
   return (
-    <> <h1 style={{ textAlign:"center",marginTop:"50px" }}>Registraction Form</h1>
+    <> <h1 style={{ textAlign:"center",marginTop:"50px" }}>Registration Form</h1>
     <Form style={{ width:"500px",margin:"100px auto" }}>
     <Form.Group className="mb-3" controlId="formBasicEmail">
-      <Form.Label style={{ fontWeight:"500" }}>FIrst Name</Form.Label>
+      <Form.Label style={{ fontWeight:"500" }}>Ful Name</Form.Label>
       <Form.Control type="email" placeholder="Enter First Name" />
     </Form.Group>
     <Form.Group className="mb-3" controlId="formBasicEmail">
-      <Form.Label style={{ fontWeight:"500" }}>Last Name</Form.Label>
-      <Form.Control type="email" placeholder="Enter Last Name" />
+      <Form.Label style={{ fontWeight:"500" }}>Surname</Form.Label>
+      <Form.Control type="email" placeholder="Enter your surname" />
     </Form.Group>
 
     <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -39,11 +39,11 @@ const Registraction = () => {
     <Form.Group className="mb-3" controlId="formBasicCheckbox">
       <Form.Check type="checkbox" label="Check me out" />
     </Form.Group>
-    <Button variant="primary" type="submit" style={{ width:"500px",backgroundColor:"#0F172A",border:"none",height:"50px" }}>
+    <Button variant="primary" type="submit" style={{ width:"100%",backgroundColor:"#0F172A",border:"none",height:"50px" }}>
       Registraction
     </Button>
   </Form></>
   );
 };
 
-export default Registraction;
+export default Registration;
