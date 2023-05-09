@@ -12,6 +12,10 @@ Make sure you include the issue number with a hash sign # so Github can link thi
 
 Fixes #1
 
+## 📸 Screenshots
+
+Kindly attach screenshots if available
+
 ## Checklist:
 
 - [ ] My code follows the style guidelines of this project

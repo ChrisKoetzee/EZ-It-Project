@@ -1,0 +1,13 @@
+name: CI
+on: [pull_request, workflow_dispatch]
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    container: node:16-alpine
+    steps:
+      - name: checkout repository
+        uses: actions/checkout@v2
+      - name: install dependencies
+        run: npm install
+      - name: Run ESLint
+        run: npm run lint

@@ -1,16 +1,16 @@
 import { Route, Routes } from "react-router-dom";
-
+import "bootstrap/dist/css/bootstrap.min.css";
 import About from "./pages/About";
 import Home from "./pages/Home";
-import Login from "./pages/Login";
-import Registration from "./pages/Registration";
+import Footer from "./pages/Footer";
+import TeacherForm from "./pages/TeacherForm";
 
 const App = () => (
 	<Routes>
-		<Route path="/" element={<Home />} />
+		<Route path="/home/this/site" element={<Home />} />
 		<Route path="/about/this/site" element={<About />} />
-		<Route path="/login/this/site" element={<Login />} />
-		<Route path="/registraction/this/site" element={<Registration/>} />
+		<Footer />
+		<Route path="/admin/teacher-registration" element={<TeacherForm />} />
 	</Routes>
 );
 
