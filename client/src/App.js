@@ -7,7 +7,7 @@ import TeacherForm from "./pages/TeacherForm";
 
 const App = () => (
 	<Routes>
-		<Route path="/" element={<Home />} />
+		<Route path="/home/this/site" element={<Home />} />
 		<Route path="/about/this/site" element={<About />} />
 		<Footer />
 		<Route path="/admin/teacher-registration" element={<TeacherForm />} />
