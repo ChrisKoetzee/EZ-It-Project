@@ -71,23 +71,4 @@ router.put('/:id', (req, res) => {
 		})
 })
 
-//Login for Student code 
-router.post('/login', (req, res) => {
-	const { email, password } = req.body;
-	const query = 'SELECT * FROM students WHERE email = $1 AND password = $2';
-	pool.query(query, [email, password], (error, results) => {
-	  if (error) {
-		return res.status(400).json({ error: 'An error occurred' });
-	  }
-	  if (results.rowCount === 0) {
-		return res.status(401).json({ error: 'Invalid email or password' });
-	  }
-	  const student = results.rows[0];
-	  const token = jwt.sign({ id: student.id }, process.env.JWT_SECRET);
-	  return res.status(200).json({ token });
-	});
-  });
-  
-
-
 export default router;
