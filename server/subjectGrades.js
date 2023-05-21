@@ -6,8 +6,7 @@ const router = Router();
 router.post("/", async (req, res) => {
 	try {
 		const { grade } = req.body;
-		const insertQuery =
-			"INSERT INTO Grades (grade) VALUES ($1) RETURNING *";
+		const insertQuery = "INSERT INTO Grades (grade) VALUES ($1) RETURNING *";
 		const values = [grade];
 		const result = await query.query(insertQuery, values);
 		res.status(200).json(result.rows[0]);

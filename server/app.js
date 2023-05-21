@@ -20,7 +20,6 @@ const teacherRoot = "/api/teacher";
 const subjectsRoot = "/api/subjects";
 const subjectGradesRoot = "/api/grades";
 
-
 const app = express();
 
 app.use(express.json());
