@@ -2,11 +2,10 @@ import { Route, Routes } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import About from "./pages/About";
 import Home from "./pages/Home";
-
 import TeacherForm from "./pages/TeacherForm";
-
+import Login from "./pages/Login";
+import StudentRegistration from "./pages/StudentRegistration";
 // import { Router } from "express";
-
 const App = () => (
 	<div>
 		<Routes>
