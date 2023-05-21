@@ -41,7 +41,6 @@ app.use(clientRouter(studentRoot));
 app.use(clientRouter(teacherRoot));
 app.use(clientRouter(subjectsRoot));
 app.use(clientRouter(subjectGradesRoot));
-
 app.use(logErrors());
 
 export default app;
