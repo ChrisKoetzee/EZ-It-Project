@@ -5,6 +5,7 @@ import Home from "./pages/Home";
 import Footer from "./pages/Footer";
 import TeacherForm from "./pages/TeacherForm";
 import Navbar from "./component/NavBar";
+import InfoPage from "./pages/Info";
 // import { Router } from "express";
 
 const App = () => (
@@ -12,6 +13,7 @@ const App = () => (
 		<Navbar />
 		<Routes>
 			<Route path="/" element={<Home />} />
+			<Route path="/info" element={<InfoPage />} />
 			<Route path="/about/this/site" element={<About />} />
 			<Route path="/admin/teacher-registration" element={<TeacherForm />} />
 		</Routes>
