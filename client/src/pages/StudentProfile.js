@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Table } from "react-bootstrap";
 import Template from "../components/Template";
+import UpdateGrade from "../components/UpdateGrade";
 
 const StudentProfile = () => {
 	const { id } = useParams();
@@ -57,6 +58,7 @@ const StudentProfile = () => {
 								))}
 							</tbody>
 						</Table>
+						<UpdateGrade />
 					</div>
 				</div>
 			</div>
