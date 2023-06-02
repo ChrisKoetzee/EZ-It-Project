@@ -50,16 +50,41 @@ router.get("/", (req, res) => {
 		.then((result) => res.json(result.rows))
 		.catch((error) => res.status(400).json(error));
 });
-router.get("/:id", (req, res) => {
-	const id = req.params.id;
-	query
-		.query(
-			"SELECT fullNames, surname, dateOfBirth, email, gender, phoneNumber FROM students WHERE id=$1",
-			[id]
-		)
-		.then((result) => res.json(result.rows))
-		.catch((error) => res.status(400).json(error));
+// router.get("/:id", (req, res) => {
+// 	const id = req.params.id;
+// 	query
+// 		.query(
+// 			"SELECT fullNames, surname, dateOfBirth, email, gender, phoneNumber FROM students WHERE id=$1",
+// 			[id]
+// 		)
+// 		.then((result) => res.json(result.rows))
+// 		.catch((error) => res.status(400).json(error));
+// });
+
+router.get("/:id", async (req, res) => {
+	try {
+		const id = req.params.id;
+		const studentQuery =
+			"SELECT fullnames, surname, dateofbirth, email, gender, phonenumber FROM students WHERE id = $1";
+		const studentResult = await query.query(studentQuery, [id]);
+		if (studentResult.rows.length === 0) {
+			res.status(404).json({ error: "Student not found" });
+		} else {
+			const subjectsQuery =
+				// "SELECT so.subject, g.grade, g.comment FROM students s JOIN subject so ON s.id = so.student_id LEFT JOIN grades g ON s.id = g.student_id AND so.id = g.subject_id WHERE s.id = $1";
+				"SELECT so.subject, g.grade, g.comment FROM students s JOIN subjects so ON s.id = so.student_id LEFT JOIN grades g ON s.id = g.student_id AND so.id = g.subject_id WHERE s.id = $1;";
+			const subjectsResult = await query.query(subjectsQuery, [id]);
+			const student = studentResult.rows[0];
+			const subjects = subjectsResult.rows;
+			res.status(200).json({ student, subjects });
+		}
+	} catch (error) {
+		res
+			.status(500)
+			.json({ error: "An error occurred while fetching the student profile" });
+	}
 });
+
 router.delete("/:id", (req, res) => {
 	const id = req.params.id;
 	query.query("DELETE FROM students WHERE id=$1", [id]).then(() => {
@@ -74,7 +99,7 @@ router.put("/:id", (req, res) => {
 		req.body;
 	query
 		.query(
-			"UPDATE students SET fullNames=? surname=? dateOfBirth=?, email=?, phoneNumber=? gender=? WHERE id=$1",
+			"UPDATE students SET fullNames=$1 surname=$2 dateOfBirth=$3, email=$4, phoneNumber=$5 gender=$6 WHERE id=$1",
 			[id, fullNames, surname, dateOfBirth, email, phoneNumber, gender]
 		)
 		.then(() => {

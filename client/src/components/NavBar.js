@@ -56,7 +56,10 @@ function NavBar() {
 										>
 											School Info
 										</Nav.Link>
-										<Nav.Link className="text-black font-weight-600" href="#">
+										<Nav.Link
+											className="text-black font-weight-600"
+											href="/studentprofile/2"
+										>
 											Student Info
 										</Nav.Link>
 										<Nav.Link className="text-black font-weight-600" href="#">

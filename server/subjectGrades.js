@@ -5,9 +5,10 @@ const router = Router();
 
 router.post("/", async (req, res) => {
 	try {
-		const { grade } = req.body;
-		const insertQuery = "INSERT INTO Grades (grade) VALUES ($1) RETURNING *";
-		const values = [grade];
+		const { student_id, subject_id, grade, comment } = req.body;
+		const insertQuery =
+			"INSERT INTO Grades INSERT INTO Grades (student_id, subject_id, grade, comment) VALUES ($1, $2, $3, $4) RETURNING *";
+		const values = [student_id, subject_id, grade, comment];
 		const result = await query.query(insertQuery, values);
 		res.status(200).json(result.rows[0]);
 	} catch (error) {
@@ -32,7 +33,7 @@ router.get("/", async (req, res) => {
 router.get("/:id", async (req, res) => {
 	try {
 		const id = req.params.id;
-		const selectQuery = "SELECT id, grade FROM grades WHERE id = $1";
+		const selectQuery = "SELECT id, grade, FROM grades WHERE id = $1";
 		const result = await query.query(selectQuery, [id]);
 		if (result.rows.length === 0) {
 			res.status(404).json({ error: "grade not found" });

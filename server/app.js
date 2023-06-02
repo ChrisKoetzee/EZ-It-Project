@@ -15,7 +15,7 @@ import {
 } from "./utils/middleware";
 
 const apiRoot = "/api";
-const studentRoot = "/api/student";
+const studentRoot = "/api/student/";
 const teacherRoot = "/api/teacher";
 const subjectsRoot = "/api/subjects";
 const subjectGradesRoot = "/api/grades";
