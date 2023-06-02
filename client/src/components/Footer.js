@@ -10,7 +10,7 @@ import {
 export default function App() {
 	return (
 		<MDBFooter
-			className="text-center text-lg-start text-muted"
+			className="text-center text-lg-start  text-white"
 			style={{ backgroundColor: "#0f172a" }}
 		>
 			<section className="d-flex justify-content-center justify-content-lg-space-evenly p-4 border-bottom">
@@ -35,7 +35,7 @@ export default function App() {
 			</section>
 
 			<section className="">
-				<MDBContainer className="text-center text-md-start mt-5">
+				<MDBContainer className="text-center text-md-start mt-5 text-white" >
 					<MDBRow className="mt-3">
 						<MDBCol md="3" lg="4" xl="3" className="mx-auto mb-4">
 							<h6 className="text-uppercase fw-bold mb-4">

@@ -6,28 +6,24 @@ function NavBar() {
 	const menuRef = useRef(null);
 
 	const stickyHeaderFunc = () => {
-		if (
-			document.body.scrollTop > 80 ||
-			document.documentElement.scrollTop > 80
-		) {
-			headerRef.current.classList.add("sticky_header");
-		} else {
-			headerRef.current.classList.remove("sticky_header");
-		}
+		window.addEventListener("scroll", () => {
+			if (
+				document.body.scrollTop > 80 ||
+				document.documentElement.scrollTop > 80
+			) {
+				headerRef.current.classList.add("sticky_header");
+			} else {
+				headerRef.current.classList.remove("sticky_header");
+			}
+		});
 	};
 
 	const toggleMenu = () => menuRef.current.classList.toggle("show__menu");
 
 	useEffect(() => {
-		const handleScroll = () => {
-			stickyHeaderFunc();
-		};
+		stickyHeaderFunc();
 
-		window.addEventListener("scroll", handleScroll);
-
-		return () => {
-			window.removeEventListener("scroll", handleScroll);
-		};
+		return () => window.removeEventListener("scroll", stickyHeaderFunc);
 	}, []);
 
 	return (
@@ -38,9 +34,9 @@ function NavBar() {
 					{/* Logo end */}
 					{/* Menu Start */}
 					<div ref={menuRef} className="menu">
-						<Navbar expand="lg" className="p-0">
+						<Navbar expand="md" className="p-0">
 							<Container>
-								<Navbar.Brand as={Link} to="/" className="mr-auto">
+								<Navbar.Brand href="/home" className="mr-auto">
 									Douglas Road Primary School
 								</Navbar.Brand>
 								<Navbar.Toggle
@@ -55,24 +51,20 @@ function NavBar() {
 									<Nav className="mr-auto">
 										<Nav.Link
 											className="text-black font-weight-600"
-											as={Link}
-											to="/about/this/site"
+											href="/about/this/site"
 										>
 											School Info
 										</Nav.Link>
-										<Nav.Link className="text-black font-weight-600" href="#">
+										<Nav.Link
+											className="text-black font-weight-600"
+											href="/studentprofile/2"
+										>
 											Student Info
 										</Nav.Link>
-										<Nav.Link
-											className="text-black font-weight-600"
-											href="/newsletter"
-										>
+										<Nav.Link className="text-black font-weight-600" href="#">
 											NewsLetter
 										</Nav.Link>
-										<Nav.Link
-											className="text-black font-weight-600"
-											href="/donation"
-										>
+										<Nav.Link className="text-black font-weight-600" href="#">
 											Donation
 										</Nav.Link>
 										<NavDropdown
@@ -96,7 +88,7 @@ function NavBar() {
 											</Nav.Link>
 											<Nav.Link
 												onClick={() =>
-													(window.location.href = "/student-registration")
+													(window.location.href = "admin/student-registration")
 												}
 												onMouseOver={(e) =>
 													(e.target.style.backgroundColor = "#ccc")
@@ -108,17 +100,6 @@ function NavBar() {
 												Register a student
 											</Nav.Link>
 										</NavDropdown>
-										<Nav.Link
-											className="text-black font-weight-600"
-											href="/teacher/profile"
-										>
-											Teacher profile
-										</Nav.Link>
-										<Nav.Link className="" href="/login">
-											<Button onClick={toggleMenu} variant="outline-dark">
-												Login
-											</Button>
-										</Nav.Link>
 									</Nav>
 								</Navbar.Collapse>
 							</Container>
@@ -128,6 +109,11 @@ function NavBar() {
 
 					{/* Menu Right */}
 					<div className="d-flex align-items-center gap-4">
+						<Nav.Link to={"/login"}>
+							<Button onClick={toggleMenu} variant="outline-dark">
+								Login
+							</Button>
+						</Nav.Link>
 						<Container
 							onClick={toggleMenu}
 							onKeyDown={toggleMenu}
