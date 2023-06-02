@@ -28,17 +28,25 @@ export function Home() {
 						<Col xs={12} sm={6}>
 							<Card className="flex-column, p-3">
 								<Card.Title as="h1">
-									Welcome to Douglas Primary School
+									Welcome to Douglas Road Primary School
 								</Card.Title>
 								<Card.Text>
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-									do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-									Ut enim ad minim veniam, quis nostrud exercitation ullamco
-									laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-									irure dolor in reprehenderit in voluptate velit esse cillum
-									dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-									cupidatat non proident, sunt in culpa qui officia deserunt
-									mollit anim id est laborum.
+									<h2>Our vision</h2>
+									<p>
+										To create an educational environment and to develop the
+										skills of our learners in order for them to play a
+										meaningful role in society. Our educators are to be kept
+										abreast of new developments in education on order that our
+										learners gain excellence in education.
+									</p>
+									<h2>Our mission</h2>
+									<p>
+										To strive to maintain a high level of education by educating
+										our children to become responsible in order that they my
+										play a meaningful role in society as well as to provide the
+										staff with the opportunity for professional growth enabling
+										them to deliver the best possible education to our learners.
+									</p>
 								</Card.Text>
 								<Link to="student-registration">
 									<Button
@@ -56,7 +64,7 @@ export function Home() {
 						<Col xs={12} sm={6}>
 							<Card className="flex-column, p-3">
 								<Image
-									src="http://surl.li/gztyt"
+									src="https://scontent-cpt1-1.xx.fbcdn.net/v/t39.30808-6/308967485_521389659992173_8483769297812494645_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=e3f864&_nc_ohc=piYsq29mr6EAX-nJTeI&_nc_ht=scontent-cpt1-1.xx&oh=00_AfDI-R1dRDaLaukWyuw8b02E9WBSRoKUcWfhfhjwvkyokA&oe=6475CE44"
 									alt="front of school"
 									fluid
 									height="100%"

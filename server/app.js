@@ -1,6 +1,6 @@
 import express from "express";
-
 import apiRouter from "./api";
+import loginRouter from "./login";
 import studentRouter from "./student";
 import teacherRouter from "./teacher";
 import subjectsRouter from "./subjects";
@@ -13,12 +13,12 @@ import {
 	httpsOnly,
 	logErrors,
 } from "./utils/middleware";
-
 const apiRoot = "/api";
 const studentRoot = "/api/student/";
 const teacherRoot = "/api/teacher";
 const subjectsRoot = "/api/subjects";
 const subjectGradesRoot = "/api/grades";
+const loginRoot = "/api/login";
 const app = express();
 
 app.use(express.json());
@@ -31,6 +31,7 @@ if (config.production) {
 }
 
 app.use(apiRoot, apiRouter);
+app.use(loginRoot, loginRouter);
 app.use(studentRoot, studentRouter);
 app.use(teacherRoot, teacherRouter);
 app.use(subjectsRoot, subjectsRouter);
